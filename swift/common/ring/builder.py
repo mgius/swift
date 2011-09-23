@@ -459,6 +459,8 @@ class RingBuilder(object):
                 for part in half:
                     if self._last_part_moves[part] < self.min_part_hours:
                         continue
+                    if part in reassign_parts:
+                        continue
                     dev = self.devs[part2dev[part]]
                     if dev['parts_wanted'] < 0:
                         part2dev[part] = 0xffff
